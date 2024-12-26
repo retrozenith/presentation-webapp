@@ -27,6 +27,16 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 
+if (config.production === false) {
+  // Dacă aplicația nu este în producție, împiedicăm cache-ul resurselor
+  app.use((req, res, next) => {
+      res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
+      res.setHeader('Pragma', 'no-cache');
+      res.setHeader('Expires', '0');
+      next();
+  });
+}
+
 // Pornește serverul pe portul configurat
 app.listen(port, host, () => {
   console.log(`Serverul rulează pe http://${host}:${port}`);

@@ -3,17 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Vizualizator pentru proiecte cu conținut Markdown. Schimbă tema între mod luminos și întunecat.">
+    <meta name="keywords" content="vizualizator, proiect, markdown, teme, web">
+    <meta name="author" content="Cristea Florian Victor">
     <title>Vizualizator Proiect</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+    <!-- Splash Animation -->
+    <div id="splash-screen" class="splash">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Header -->
     <header>
         <h1 id="page-title">Titlul Proiectului</h1>
         <button id="theme-toggle">🌙 Mod Întunecat</button>
     </header>
+
+    <!-- Main Content -->
     <main id="content-container">
         <!-- Conținutul încărcat va fi afișat aici -->
     </main>
+
+    <!-- Footer -->
     <footer>
         <p>&copy; 2024 Realizat de Cristea Florian Victor</p>
     </footer>
@@ -21,5 +35,6 @@
     <!-- Librăria marked.js -->
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script src="script.js"></script>
+
 </body>
 </html>
