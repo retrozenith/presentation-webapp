@@ -19,6 +19,8 @@ COPY ./public /webapp/public
 
 COPY ./app.py /webapp/
 
+COPY ./requirements.txt /webapp/
+
 # Install the required dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
