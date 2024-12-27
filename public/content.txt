@@ -1,31 +1,72 @@
-###! Titlul Proiectului Lorem Ipsum
+###! Românii în Primul Război Mondial: Contribuții și Suferințe
 
-# Introducere
+![Imagine](https://upload.wikimedia.org/wikipedia/commons/2/20/Bulgaria_southern_front.jpg)
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec sapien ut orci auctor tincidunt vel eget augue. Duis vel enim non felis fermentum malesuada at sit amet risus.
+# Introducere:
+
+- Primul Război Mondial (1914-1918) a fost un conflict de proporții globale care a marcat profund istoria țărilor implicate. România, aflată într-o perioadă de consolidare națională, a intrat în război pe 27 august 1916, alături de Antanta, în urma unui pact cu Franța, Marea Britanie și Rusia. Deși țara nu dispunea de o armată modernizată, mobilizarea rapidă a populației și sacrificiile imense ale românilor au jucat un rol esențial în evoluția conflictului și în formarea statului național unitar român. 
+
+- Acest articol își propune să analizeze participarea României în primul război mondial, evidențiind atât contribuțiile cât și suferințele românilor, precum și impactul acestora asupra formării României Mari în 1918.
 
 ## Secțiunea 1: Obiective
 
-- **Obiectiv 1**: Suspendisse potenti. Vivamus nec nulla eget lectus luctus tincidunt.
-- **Obiectiv 2**: Phasellus malesuada nisi a purus convallis, vel feugiat neque malesuada.
-- **Obiectiv 3**: Integer eget dui nec justo scelerisque tristique sed quis ligula.
+- **Obiectiv 1**: Să prezinte contextul politic și social în care România a intrat în război.
+- **Obiectiv 2**: Să analizeze principalele bătălii și campanii în care armata română a fost implicată.
+- **Obiectiv 3**: Să discute impactul războiului asupra populației civile și asupra evoluției politice a României.
 
 ---
 
 ## Secțiunea 2: Metodologie
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer id nisi et odio dapibus semper. Nulla facilisi. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Etiam id fringilla neque.
+- Pentru a analiza implicarea României în Primul Război Mondial, vom utiliza o metodologie istorică bazată pe surse primare și secundare. Vom analiza documente istorice, lucrări de specialitate și relatări ale martorilor oculari pentru a înțelege în profunzime contextul, luptele și sacrificiile făcute de români. De asemenea, vom explora impactul războiului asupra evoluției politice și teritoriale a țării.
 
 ### Subsecțiune: Pașii
 
-1. **Primul pas**: Vestibulum efficitur turpis nec justo interdum vehicula.
-2. **Al doilea pas**: Donec euismod leo vel lorem pharetra, ut hendrerit est tristique.
-3. **Al treilea pas**: Fusce nec urna ullamcorper, porta sapien sit amet, vehicula odio.
+1. **Primul pas**: Analiza contextului geopolitic din perioada premergătoare războiului.
+2. **Al doilea pas**: Studiul marilor bătălii și campanii din timpul războiului.
+3. **Al treilea pas**: Evaluarea impactului războiului asupra populației și asupra formării României Mari.
 
 ---
 
-## Concluzie
+# Participarea României în Război:
 
-Suspendisse eget nisl quis justo finibus commodo. Quisque viverra ligula non orci ultrices suscipit. Donec vel ex at erat pharetra pulvinar id eget nisl.
+- În perioada 1914-1916, România a avut un rol strategic important în regiune, fiind înconjurată de puteri centrale (Imperiul Austro-Ungar și Imperiul German) și de Rusia. După neutralitatea inițială, România a intrat în război în 1916, de partea Antantei, în urma unei înțelegeri cu Franța, Marea Britanie și Rusia. Decizia de a intra în război a fost influențată de dorința de a realiza unitatea națională, prin alipirea Transilvaniei și altor teritorii locuite de români, care se aflau sub stăpânire austro-ungară.
 
-**Fin.**
+### Campania din 1916
+
+- Primul an de război al României a fost marcat de campania din 1916, care a început cu atacuri simultane în sudul și estul țării. Armata română a lansat ofensiva în Transilvania, încercând să elibereze acest teritoriu de sub ocupația austro-ungară. Deși inițial românii au înregistrat succese importante, situația s-a complicat rapid din cauza intervenției armatei germane și a unui război pe două fronturi.
+
+- Bătălia de la Turtucaia (1916) a fost un moment tragic pentru armata română, soldații fiind înfrânți de armatele bulgare și germane. Totuși, în nord-vestul țării, armata română a obținut unele succese, dar în fața avansului trupelor centraliste, România a fost nevoită să se retragă către est, în Moldova. 
+
+### Retragerea și Rezistența la Mărășești
+
+- După retragerea forțată din sud și vest, România a reușit să opună o rezistență semnificativă pe frontul estic, în Bătălia de la Mărășești din vara anului 1917. Aici, armata română, sprijinită de forțele ruse, a înfruntat o serie de atacuri germane. Chiar dacă nu a reușit să înfrângă complet armatele Imperiului German, România a reușit să mențină un punct strategic important, împiedicând în același timp o invazie completă.
+
+- Bătălia de la Mărășești a devenit simbolul rezistenței naționale, iar jertfele făcute de soldați și de civili au fost esențiale pentru salvarea teritoriilor rămase sub control românesc și pentru menținerea speranței într-o victorie finală.
+
+# Impactul asupra Populației Civile:
+
+- Pe lângă sacrificiile făcute de armata română, populația civilă a avut un rol important în susținerea războiului. Timp de patru ani, întreaga națiune a fost implicată în conflict, femeile și copiii fiind nevoiți să preia o parte din muncile bărbaților care erau pe front. De asemenea, refugierea masivă a populației din regiunile ocupate de inamic a dus la condiții de viață extrem de grele. 
+
+- În ciuda greutăților, solidaritatea națională a fost un factor esențial care a ajutat România să reziste presiunilor. Orașele și satele au fost afectate de bombardamente și distrugeri, iar pierderile de vieți omenești au fost uriașe, atât în rândul militarilor, cât și al civililor. Se estimează că aproximativ 250.000 de români și-au pierdut viața în război, iar economia națională a fost grav afectată.
+
+# Marea Unire din 1918:
+
+- Deși România a înfruntat multe dificultăți în timpul războiului, victoriile finale ale Antantei au deschis calea pentru realizarea visului național al unității. După încheierea războiului, în 1918, România a reușit să adere la Marea Unire, când Basarabia, Bucovina și Transilvania s-au unit cu Regatul României, creând astfel România Mare.
+
+- Unirea din 1918 a fost un rezultat direct al eforturilor diplomatice și al sacrificiilor făcute pe câmpul de luptă, iar Primul Război Mondial a fost un moment definitoriu în formarea unui stat român unitar. 
+
+---
+
+# Concluzie:
+
+- Participarea României în Primul Război Mondial a fost marcată de mari sacrificii și de o mobilizare națională fără precedent. Deși armata română a fost înfrântă pe mai multe fronturi și teritorii, spiritul de rezistență al populației și al soldaților a condus la salvarea țării și, în cele din urmă, la realizarea unității naționale prin Marea Unire din 1918. Astfel, războiul a devenit un moment esențial în formarea României moderne.
+
+---
+
+# Surse:
+
+- [Institutul Național pentru Studiul Totalitarismului](https://www.inst.at)
+- [Arhivele Naționale ale României](https://www.arhivelenationale.ro)
+- [Muzeul Național de Istorie a României](https://www.mnir.ro)
+- [Wikipedia – Istoria României în Primul Război Mondial](https://ro.wikipedia.org/wiki/Istoria_României_%C3%AEn_Primul_R%C4%83zboi_Mondial)

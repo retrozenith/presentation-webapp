@@ -14,14 +14,14 @@
     animation: splashFadeInOut 1s ease-in-out forwards;
 }
 
-/* Animația de rotire a spinner-ului */
+/* Animația de rotire a spinner-ului cu accente albastre */
 .spinner {
     border: 5px solid #f3f3f3;
-    border-top: 5px solid #4CAF50; /* Culoare verde */
+    border-top: 5px solid #007bff; /* Culoare albastru pentru spinner */
     border-radius: 50%;
     width: 50px;
     height: 50px;
-    animation: spin 1.5s linear infinite;
+    animation: spin 1.5s linear infinite, changeColor 1.5s linear infinite;
 }
 
 /* Animația de rotire */
@@ -30,31 +30,69 @@
     100% { transform: rotate(360deg); }
 }
 
-/* Animația de fade in/out pentru splash */
-@keyframes splashFadeInOut {
+/* Animația de schimbare a culorii spinner-ului pentru efect albastru */
+@keyframes changeColor {
     0% {
-        opacity: 1; /* Splash-ul începe să fie complet vizibil */
+        border-top-color: #007bff; /* Culoare inițială albastru */
     }
-    90% {
-        opacity: 1; /* Rămâne vizibil pentru 90% din timpul animației */
+    50% {
+        border-top-color: #00bfff; /* Nuanta mai deschisă de albastru */
     }
     100% {
-        opacity: 0; /* Devine complet invizibil la sfârșit */
-        visibility: hidden; /* Ascunde complet splash-ul după animație */
+        border-top-color: #007bff; /* Culoare finală albastru */
     }
 }
 
-/* Stil general pentru pagină */
+/* Animația de fade in/out pentru splash */
+@keyframes splashFadeInOut {
+    0% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+/* Styling pentru body */
 body {
     background-color: var(--background-color);
-    color: var(--text-color);
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Roboto', sans-serif;
     line-height: 1.6;
-    min-height: 100vh;
+    margin: 0;
+    padding: 0;
     display: flex;
     flex-direction: column;
-    margin: 0;
-    transition: background-color 0.3s, color 0.3s;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Light Mode */
+body.light-mode {
+    --background-color: #f7f7f7; /* Off-white */
+    --text-color: #333; /* Dark gray */
+    --header-bg: #ffffff; /* White */
+    --link-color: #007bff; /* Blue for links */
+    --button-bg: #007bff; /* Blue for buttons */
+    --button-hover-bg: #0056b3; /* Darker blue on hover */
+    --footer-bg: #f1f1f1; /* Lighter gray footer */
+    --border-color: #ddd; /* Light border */
+    --main-border-color: #000; /* Negru pentru bordura din light mode */
+}
+
+/* Dark Mode */
+body.dark-mode {
+    --background-color: #121212; /* Dark background */
+    --text-color: #e0e0e0; /* Light text */
+    --header-bg: #1e1e1e; /* Darker header */
+    --link-color: #61dafb; /* Cyan for links */
+    --button-bg: #007bff; /* Blue for buttons */
+    --button-hover-bg: #0056b3; /* Darker blue on hover */
+    --footer-bg: #333333; /* Dark footer */
+    --border-color: #444; /* Dark border */
+    --main-border-color: #fff; /* Alb pentru bordura din dark mode */
 }
 
 /* Header */
@@ -62,80 +100,94 @@ header {
     background-color: var(--header-bg);
     color: var(--text-color);
     text-align: center;
-    padding: 1.5rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    padding: 2rem 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative; /* Ensure the button can be positioned absolutely */
 }
 
 h1 {
-    font-size: 1.5rem; /* Titlu mai mic */
-    font-weight: bold;
-    margin-bottom: 1rem;
+    font-size: 2rem;
+    font-weight: 600;
     color: var(--text-color);
+    margin-bottom: 2rem; /* Space between title and content */
+    margin-top: 2rem;
 }
 
-/* Main content */
+/* Position the theme toggle button */
+#theme-toggle {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    background-color: var(--button-bg);
+    color: #fff;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+#theme-toggle:hover {
+    background-color: var(--button-hover-bg);
+}
+
+/* Main Content */
 main {
-    flex: 1;
-    margin: 2rem auto;
-    padding: 2rem;
+    flex-grow: 1;
     background-color: var(--background-color);
     color: var(--text-color);
-    border-left: 5px solid var(--border-color);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    max-width: 800px;
-    transition: all 0.3s;
-    margin-top: 30px;
-    margin-bottom: 30px; /* Spațiu între titlu și footer */
-    flex-grow: 1; /* Permite main-ului să ocupe tot spațiul disponibil */
+    padding: 2rem 1rem;
+    margin-top: 30px;  /* Margin top for main */
+    margin-bottom: 30px; /* Add space between content and footer */
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    min-height: calc(100vh - 220px); /* Asigură spațiu consistent pe desktop */
+    border: 2px solid var(--main-border-color); /* Contur care variază în funcție de temă */
+}
+
+/* Adjusting padding for the mobile view */
+p, h2 {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
 }
 
 /* Footer */
 footer {
-    background-color: var(--header-bg);
+    background-color: var(--footer-bg);
     color: var(--text-color);
     text-align: center;
-    padding: 1rem 0;
+    padding: 1.5rem 0;
     margin-top: auto;
+    border-top: 5px solid var(--border-color);
 }
 
-/* Buton schimbare temă */
-button#theme-toggle {
-    background-color: var(--border-color);
+/* Button */
+button {
+    background-color: var(--button-bg);
     color: #fff;
     border: none;
-    padding: 0.5rem 1rem;
-    margin-top: 1rem;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
     cursor: pointer;
     border-radius: 5px;
-    transition: background-color 0.3s, transform 0.3s;
+    transition: background-color 0.3s ease;
+    margin-bottom: 30px;
 }
 
-button#theme-toggle:hover {
-    background-color: var(--header-bg);
-    transform: scale(1.1);
+button:hover {
+    background-color: var(--button-hover-bg);
 }
 
-/* Dark mode */
-body.dark-mode {
-    --background-color: #121212;
-    --text-color: #e0e0e0;
-    --header-bg: #1e1e1e;
-    --border-color: #66BB6A;
-}
-
-/* Theme colors for light mode */
-:root {
-    --background-color: #ffffff;
-    --text-color: #333;
-    --header-bg: #4CAF50;
-    --border-color: #4CAF50;
-}
-
-/* Responsivitate - Mobile Design */
+/* Responsive Design */
 @media (max-width: 768px) {
     header {
-        padding: 1rem;
+        padding: 1.5rem 1rem;
     }
 
     main {
@@ -143,11 +195,116 @@ body.dark-mode {
         margin: 0 auto;
         padding: 1.5rem;
         box-sizing: border-box;
-        margin-top: 30px; /* Spațiu între titlu și footer */
-        margin-bottom: 30px; /* Asigură spațiu și pe mobil între titlu și footer */
+        margin-top: 30px;
+        margin-bottom: 30px; /* Ensure spacing on mobile too */
     }
 
-    button#theme-toggle {
-        padding: 0.4rem 0.8rem;
+    button {
+        padding: 0.7rem 1.2rem;
+        font-size: 0.9rem;
     }
+
+    h1 {
+        font-size: 1.75rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+}
+
+/* Stiluri pentru linkurile cu iconițe */
+a {
+    color: var(--link-color); /* Culoare albastră pentru linkuri */
+    text-decoration: none;    /* Elimină sublinierea */
+    font-weight: 500;         /* Face textul linkurilor puțin mai îngroșat */
+    display: inline-flex;
+    align-items: center;
+    transition: color 0.3s ease; /* Efect de tranziție pentru culoare */
+    margin-right: 5px; /* Mică distanță între iconiță și text */
+}
+
+/* Stilizează iconița WWW și săgeata */
+a:before {
+    content: "🌐";  /* Iconița WWW */
+    margin-right: 5px; /* Distanță între iconiță și text */
+    font-size: 1.2rem; /* Mărimea iconiței */
+}
+
+/* Adăugăm săgeata spre tab-ul nou */
+a:after {
+    content: " \f0a9";  /* Font Awesome pentru săgeată */
+    font-family: "Font Awesome 5 Free"; /* Font Awesome */
+    font-weight: 900;  /* Asigură că săgeata este vizibilă */
+    margin-left: 5px; /* Distanță între text și săgeată */
+    font-size: 1.2rem; /* Mărimea săgeții */
+}
+
+/* Stilizarea hover pe linkuri */
+a:hover {
+    color: var(--link-color); /* Culoare albastră pentru linkuri */
+    text-decoration: none;    /* Elimină sublinierea */
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 1rem auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Stiluri pentru overlay */
+#image-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+}
+
+#overlay-content {
+    position: relative;
+    text-align: center;
+}
+
+#overlay-image {
+    max-width: 90%;
+    max-height: 80%;
+    cursor: zoom-in;
+}
+
+#image-overlay.hidden {
+    display: none;
+}
+
+/* Butoane */
+#download-button, #close-overlay {
+    position: absolute;
+    top: 10px;
+    padding: 0.6rem 1rem;
+    font-size: 1rem;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#download-button {
+    right: 10px;
+}
+
+#close-overlay {
+    left: 10px;
+}
+
+#download-button:hover, #close-overlay:hover {
+    background-color: #0056b3;
 }

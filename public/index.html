@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Vizualizator pentru proiecte cu conținut Markdown. Schimbă tema între mod luminos și întunecat.">
-    <meta name="keywords" content="vizualizator, proiect, markdown, teme, web">
-    <meta name="author" content="Cristea Florian Victor">
-    <title>Vizualizator Proiect</title>
-    <link rel="stylesheet" href="style.css">
+       <!-- Meta tag unic pentru schimbarea culorii -->
+    <meta name="theme-color" content="#00000">
+    <title id="page-title">Vizualizator Proiect</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('serve_static', filename='style.css') }}">
 </head>
 <body>
 
@@ -18,23 +18,32 @@
 
     <!-- Header -->
     <header>
-        <h1 id="page-title">Titlul Proiectului</h1>
-        <button id="theme-toggle">🌙 Mod Întunecat</button>
+        <h1 id="title">Titlul Proiectului</h1>
+        <button id="theme-toggle">🌙</button>
     </header>
+
+    <!-- Overlay pentru vizualizarea imaginilor -->
+    <div id="image-overlay" class="hidden">
+        <div id="overlay-content">
+            <img id="overlay-image" src="" alt="Preview Imagine">
+            <button id="download-button">Descarcă</button>
+            <button id="close-overlay">X</button>
+        </div>
+    </div>
 
     <!-- Main Content -->
     <main id="content-container">
-        <!-- Conținutul încărcat va fi afișat aici -->
+        <!-- Content will be loaded here -->
     </main>
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2024 Realizat de Cristea Florian Victor</p>
+        <p id="footer-text">© 2024</p>
     </footer>
 
     <!-- Librăria marked.js -->
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <script src="script.js"></script>
+    <script src="{{ url_for('serve_static', filename='script.js') }}"></script>
 
 </body>
 </html>
