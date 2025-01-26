@@ -94,7 +94,7 @@ document.addEventListener("DOMContentLoaded", () => {
             // Asigurăm că toate linkurile se deschid într-un tab nou
             const links = contentContainer.querySelectorAll("a");
             links.forEach(link => {
-                link.setAttribute("target", "_blank"); // Setează target="_blank" pentru toate linkurile
+                link.setAttribute("target", "_blank"); // Setează target="_blank pentru toate linkurile
             });
 
             // Configurăm funcționalitatea pentru imagini
@@ -111,70 +111,152 @@ document.addEventListener("DOMContentLoaded", () => {
             contentContainer.innerHTML = "<p style='color:red;'>Nu s-a putut încărca conținutul proiectului.</p>";
         });
 
-    // Creează overlay-ul pentru vizualizarea imaginilor
-    const createImageOverlay = () => {
-        const overlay = document.createElement("div");
-        overlay.id = "image-overlay";
-        overlay.style.cssText = `
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 10000;
-            visibility: hidden;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        `;
-
-        const img = document.createElement("img");
-        img.id = "overlay-image";
-        img.style.cssText = `
-            max-width: 90%;
-            max-height: 90%;
-            cursor: zoom-in;
-        `;
-        overlay.appendChild(img);
-
-        const downloadButton = document.createElement("a");
-        downloadButton.id = "download-button";
-        downloadButton.textContent = "Descărcare";
-        downloadButton.style.cssText = `
-            position: absolute;
-            bottom: 20px;
-            background: #007bff;
-            color: #fff;
-            padding: 10px 20px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-size: 1rem;
-        `;
-        overlay.appendChild(downloadButton);
-
-        overlay.addEventListener("click", () => {
-            overlay.style.visibility = "hidden";
-            overlay.style.opacity = "0";
+        const createImageOverlay = () => {
+            const overlay = document.createElement("div");
+            overlay.id = "image-overlay";
+            overlay.style.cssText = `
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.8);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                z-index: 10000;
+                visibility: hidden;
+                opacity: 0;
+                overflow: hidden;
+                transition: opacity 0.3s ease;
+            `;
+    
+            const img = document.createElement("img");
+            img.id = "overlay-image";
+            img.style.cssText = `
+                position: absolute;
+                max-width: none;
+                max-height: none;
+                transform-origin: center;
+                transition: transform 0.3s ease;
+            `;
+    
+            // Prevenim comportamentul implicit de drag
+            img.addEventListener("dragstart", (event) => {
+                event.preventDefault();
+            });
+    
+            overlay.appendChild(img);
+    
+            const controls = document.createElement("div");
+            controls.style.cssText = `
+                position: absolute;
+                bottom: 20px;
+                display: flex;
+                gap: 10px;
+            `;
+    
+            const zoomInButton = document.createElement("button");
+            zoomInButton.textContent = "🔍 Zoom In";
+            zoomInButton.addEventListener("click", () => {
+                currentScale += 0.2;
+                updateTransform();
+            });
+    
+            const zoomOutButton = document.createElement("button");
+            zoomOutButton.textContent = "🔎 Zoom Out";
+            zoomOutButton.addEventListener("click", () => {
+                currentScale = Math.max(1, currentScale - 0.2);
+                updateTransform();
+            });
+    
+            const downloadButton = document.createElement("button");
+            downloadButton.textContent = "⬇️ Descarcă";
+            downloadButton.addEventListener("click", () => {
+                const a = document.createElement("a");
+                a.href = img.src;
+                a.download = img.src.split('/').pop();
+                a.click();
+            });
+    
+            const closeButton = document.createElement("button");
+            closeButton.textContent = "❌ Închide";
+            closeButton.addEventListener("click", () => {
+                overlay.style.visibility = "hidden";
+                overlay.style.opacity = "0";
+                document.body.style.overflow = "auto"; // Reactivăm scroll-ul paginii
+            });
+    
+            controls.appendChild(zoomInButton);
+            controls.appendChild(zoomOutButton);
+            controls.appendChild(downloadButton);
+            controls.appendChild(closeButton);
+    
+            overlay.appendChild(controls);
+            document.body.appendChild(overlay);
+    
+            let currentX = 0;
+            let currentY = 0;
+            let currentScale = 1;
+    
+            const updateTransform = () => {
+                img.style.transform = `translate(${currentX}px, ${currentY}px) scale(${currentScale})`;
+            };
+    
+            let isDragging = false;
+            let startX, startY;
+    
+            // Gestionăm mișcarea imaginii cu mouse-ul
+            img.addEventListener("mousedown", (event) => {
+                isDragging = true;
+                startX = event.clientX - currentX;
+                startY = event.clientY - currentY;
+            });
+    
+            document.addEventListener("mousemove", (event) => {
+                if (!isDragging) return;
+                currentX = event.clientX - startX;
+                currentY = event.clientY - startY;
+                updateTransform();
+            });
+    
+            document.addEventListener("mouseup", () => {
+                isDragging = false;
+            });
+    
+            // Scroll pentru zoom
+            overlay.addEventListener("wheel", (event) => {
+                if (event.deltaY < 0) {
+                    currentScale += 0.1; // Zoom In
+                } else {
+                    currentScale = Math.max(1, currentScale - 0.1); // Zoom Out
+                }
+                updateTransform();
+                event.preventDefault(); // Previne scroll-ul paginii
+            });
+    
+            return overlay;
+        };
+    
+        const overlay = createImageOverlay();
+    
+        const openImageOverlay = (src) => {
+            const img = overlay.querySelector("#overlay-image");
+            img.src = src;
+            overlay.style.visibility = "visible";
+            overlay.style.opacity = "1";
+            document.body.style.overflow = "hidden"; // Dezactivăm scroll-ul paginii
+            currentX = 0;
+            currentY = 0;
+            currentScale = 1; // Resetare transformări
+            img.style.transform = "scale(1)";
+        };
+    
+        // Exemplu de utilizare (înlocuiește cu imagini din conținutul tău)
+        const images = document.querySelectorAll("img");
+        images.forEach((image) => {
+            image.addEventListener("click", () => {
+                openImageOverlay(image.src);
+            });
         });
-
-        document.body.appendChild(overlay);
-    };
-
-    const openImageOverlay = (src) => {
-        const overlay = document.getElementById("image-overlay");
-        const img = document.getElementById("overlay-image");
-        const downloadButton = document.getElementById("download-button");
-
-        img.src = src;
-        downloadButton.href = src;
-        downloadButton.download = src.split("/").pop();
-
-        overlay.style.visibility = "visible";
-        overlay.style.opacity = "1";
-    };
-
-    createImageOverlay();
-});
+    });

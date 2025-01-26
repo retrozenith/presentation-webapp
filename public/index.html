@@ -22,14 +22,19 @@
         <button id="theme-toggle">🌙</button>
     </header>
 
-    <!-- Overlay pentru vizualizarea imaginilor -->
+    <!-- Overlay pentru imagine -->
     <div id="image-overlay" class="hidden">
-        <div id="overlay-content">
-            <img id="overlay-image" src="" alt="Preview Imagine">
-            <button id="download-button">Descarcă</button>
-            <button id="close-overlay">X</button>
+        <div class="overlay-content">
+            <img id="overlay-image" src="" alt="Imagine">
+            <div class="overlay-controls">
+                <button id="zoom-in">🔍 Zoom In</button>
+                <button id="zoom-out">🔎 Zoom Out</button>
+                <a id="download-image" download>⬇️ Descarcă</a>
+                <button id="close-overlay">❌ Închide</button>
+            </div>
         </div>
     </div>
+
 
     <!-- Main Content -->
     <main id="content-container">

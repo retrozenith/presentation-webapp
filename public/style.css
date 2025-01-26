@@ -255,56 +255,59 @@ img {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Stiluri pentru overlay */
+/* Overlay pentru imagine */
 #image-overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.9);
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 10000;
-}
-
-#overlay-content {
-    position: relative;
-    text-align: center;
-}
-
-#overlay-image {
-    max-width: 90%;
-    max-height: 80%;
-    cursor: zoom-in;
+    transition: opacity 0.3s ease;
 }
 
 #image-overlay.hidden {
     display: none;
 }
 
-/* Butoane */
-#download-button, #close-overlay {
-    position: absolute;
-    top: 10px;
-    padding: 0.6rem 1rem;
-    font-size: 1rem;
-    color: white;
+.overlay-content {
+    position: relative;
+    text-align: center;
+    max-width: 90%;
+    max-height: 90%;
+}
+
+#overlay-image {
+    max-width: 100%;
+    max-height: 80%;
+    transition: transform 0.3s ease;
+}
+
+.overlay-controls {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.overlay-controls button,
+.overlay-controls a {
     background-color: #007bff;
+    color: #fff;
     border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
     border-radius: 5px;
     cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
 }
 
-#download-button {
-    right: 10px;
-}
-
-#close-overlay {
-    left: 10px;
-}
-
-#download-button:hover, #close-overlay:hover {
+.overlay-controls button:hover,
+.overlay-controls a:hover {
     background-color: #0056b3;
 }
